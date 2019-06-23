@@ -1,0 +1,67 @@
+.navbar-default{
+    z-index: 1 !important;
+  }
+  
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 25px;
+    height: 20px;
+    left: 22px;
+    top: 15px;
+    z-index: 2 !important;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+    border-radius: 2px;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .burgerIconWidth{
+    width: 40px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #bdc3c7;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #f8f8f8;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  .bm-menu-wrap {
+    left: 0px;
+    z-index: 3 !important;
+    width: 250px !important;
+    top: 0!important;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #f8f8f8;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+    left: 0;
+    z-index: 2 !important;
+    top: 0!important;
+  }
