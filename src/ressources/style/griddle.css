@@ -1,0 +1,11 @@
+.griddle-cell {
+    padding-right: 10px;
+}
+
+.griddle-table-heading-cell {
+    padding-right: 10px;
+}
+
+.griddle-row {
+    border-bottom: solid black 1px;
+}

@@ -1,0 +1,54 @@
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6" : true
+    },
+    "extends": ["eslint:recommended", "google"],
+    "globals": {
+        "Uint8Array": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6,
+            "ecmaFeatures": {
+                "jsx": true
+            },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react", "import"
+    ],
+    "rules": {
+        "import/no-unresolved": "error",
+        "import/named": "error",
+        "import/default": "error",
+        "import/namespace": "error",
+        "import/export": "error",
+        "import/first": "error",
+        "import/no-named-as-default": "error",
+        "import/no-named-as-default-member": "error",
+        "linebreak-style": "off",
+        "max-len": [1, 200, 4],
+        "no-console": "off",
+        "no-multi-spaces": "off",
+        "no-undef": "error",
+        "no-unused-vars": "warn",
+        "padded-blocks": "warn",
+        "quotes": ["warn", "single"],
+        "require-jsdoc": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": "warn",
+        "react/jsx-no-undef": "error",
+        "react/prop-types": "warn",
+        "max-line-length": false
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack":  {
+                "config": "webpack.config.js"
+            }
+        }
+    }    
+}
