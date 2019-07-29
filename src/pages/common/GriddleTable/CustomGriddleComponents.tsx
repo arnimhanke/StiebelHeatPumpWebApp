@@ -99,7 +99,7 @@ export const CustomPagination = ({ Next, Previous, PageDropdown, style, classNam
 
 export const CustomSettingsWrapper = ({ SettingsToggle, Settings, isEnabled, isVisible, style, className }: any) => (
     isEnabled ? (
-      <div style={{float: 'right', width: '75%'}} className={className}>
+      <div style={{float: 'right', width: '100%'}} className={className}>
         { <Settings key={'CustomSettingsKey'}/> }
       </div>
     ) : null
@@ -117,8 +117,7 @@ export const CustomSettingsToggle = ({ onClick, text, style, className }: any) =
 
 export const CustomSettings = ({ settingsComponents, style, className }: any) => (
     <Row style={{marginTop: '0px'}}>
-        <Col md={7} xs={0}/>
-        <Col md={5}>
+        <Col xs={12} style={{float: 'right'}}>
             <ButtonToolbar style={{float: 'right'}}>
                 {settingsComponents && settingsComponents.map((SettingsComponent: any, i: any) => {
                     return (SettingsComponent && <SettingsComponent key={'SettingComponent_' + i}/>);

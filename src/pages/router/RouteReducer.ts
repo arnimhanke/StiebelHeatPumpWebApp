@@ -7,6 +7,13 @@ import { DayViewView } from '../view_dayview/DayViewContainer';
 import { MonthViewView } from '../view_monthview/MonthViewContainer';
 import { CHANGE_PAGE_TITLE } from './RouteContainer';
 
+interface IRegisteredPagesInterface {
+    component: React.Component | any;
+    path: string;
+    showIn: string;
+    title: string;
+}
+
 export interface IRouteStore {
     mainPage: {
         component: React.Component | any,
@@ -14,14 +21,8 @@ export interface IRouteStore {
         showIn: string,
         title: string,
     };
-    registeredPages: [
-        {
-            component: React.Component | any,
-            path: string,
-            showIn: string,
-            title: string,
-        }
-    ];
+    registeredPages: IRegisteredPagesInterface[]
+    ;
     titleActivePage: string;
 }
 

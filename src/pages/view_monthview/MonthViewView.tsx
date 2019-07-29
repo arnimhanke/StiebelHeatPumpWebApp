@@ -2,9 +2,9 @@ import * as moment from 'moment';
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
-import * as Griddle from 'griddle-react';
 import * as DateTimePicker from 'react-datetime';
 import { AbstractView } from '../common/AbstractComponent';
+import * as ExportToCSV from '../common/export/ExportToCSV';
 import { GriddleTableButtonColumn } from '../common/GriddleTable/GriddleTableButtonColumn';
 import { IMonthViewStore } from './MonthViewReducer';
 
@@ -35,6 +35,10 @@ export class MonthViewPlain extends AbstractView<MonthViewProps, {}> {
     }
 
     public render() {
+        if (this.props.monthViewStore.valuesForMonthView) {
+            const arrayAsCSV = ExportToCSV.convertToCSV(this.props.monthViewStore.valuesForMonthView);
+            ExportToCSV.crateFileFromStringAnDownload(arrayAsCSV);
+        }
         return (
             <div>
                 <Row>
@@ -43,13 +47,18 @@ export class MonthViewPlain extends AbstractView<MonthViewProps, {}> {
                     </Col>
                 </Row>
                 <Row>
-                    <Col mdOffset={2} md={2}>
+                    <Col mdOffset={2} md={8}>
                         <DateTimePicker
                         onChange={this.onChange}
                         timeFormat={null}
                         closeOnSelect={true}
                         value={this.props.monthViewStore.startDate}
                         />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <a id={'download_link'} download='my_exported_file.csv'>Download as Text File</a>
                     </Col>
                 </Row>
                 <Row>
