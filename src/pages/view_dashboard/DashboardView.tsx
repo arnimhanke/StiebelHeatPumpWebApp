@@ -30,11 +30,11 @@ export class DashboardPlain extends AbstractView<DashboardProps, {}> {
                 {this.props.dashboardStore.data.map((data) => {
                     return (
                         <Row id={data.id}>
-                            <Col xs={6}>
+                            <Col xs={8}>
                                 {data.id}
                             </Col>
 
-                            <Col xs={3}>
+                            <Col xs={4}>
                                 {data.value}
                             </Col>
                         </Row>

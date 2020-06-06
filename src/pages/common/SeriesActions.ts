@@ -232,7 +232,7 @@ function aggregateSeriesAverage(data: ValueDto[], start: moment.Moment, end: mom
 
 /**
  * Ermittelt das Maximum für eine Zeitreihe
- * 
+ *
  * @param data
  * @param start
  * @param end

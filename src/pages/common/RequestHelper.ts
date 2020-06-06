@@ -21,7 +21,7 @@ export interface IDispatchObjectInternData extends Action {
 export function getRequest<T>(postfix: string, dispatchType: string, optionalData?: any) {
     return ((dispatch: Dispatch<T>) => {
         try {
-            let ipPrefix = location.host;
+            let ipPrefix = location.host.split(':')[0];
             if (location.host === '') {
                 ipPrefix = 'localhost';
             }
