@@ -37,9 +37,9 @@ export function MonthViewReducer(state: IMonthViewStore = initialState, action: 
             const start = moment(optionalData.fromDateAsString);
             const end = moment(optionalData.toDateAsString).subtract(1, 'd');
 
-            const preparedData = preparingDataForFurtherUse(data.values, start, end, Interval.PT1_DAY);
+            // const preparedData = preparingDataForFurtherUse(data.values, start, end, Interval.PT1_DAY);
 
-            const reinterpretedData = reinterpreteDataAndAddTimeStamps(preparedData, data.displayedNames);
+            const reinterpretedData = reinterpreteDataAndAddTimeStamps(data.values, data.displayedNames);
             clonedState.valuesForMonthView = reinterpretedData.values;
             clonedState.columns = reinterpretedData.cols;
             clonedState.startDate = moment(optionalData.toDateAsString);
