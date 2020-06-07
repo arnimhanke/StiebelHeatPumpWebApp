@@ -77,14 +77,4 @@ const initialState: IAppStore = {
     keycloakInformations: null,
 };
 
-// export function AppViewReducer(state: IAppStore = initialState, action: any) {
-//     switch (action.type) {
-//         case CHANGE_KEYCLOAK_INSTANCE:
-//             const clonedState = clone(state);
-//             clonedState.keycloakInformations = action.data;
-//             return clonedState;
-//     }
-//     return state;
-// }
-
 export const App: React.ReactNode = connect(mapStateToProps, mapDispatchToProps)(AppPlain);

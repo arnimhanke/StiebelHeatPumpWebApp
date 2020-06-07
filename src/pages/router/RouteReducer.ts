@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { clone } from '../../util/store/ObjectUtils';
 import { App } from '../main/App';
-import { LoginView } from '../main/LoginViewContainer';
 import { DashboardView } from '../view_dashboard/DashboardContainer';
 import { DayViewView } from '../view_dayview/DayViewContainer';
 import { InfluxDBView } from '../view_influxdb/InfluxDBContainer';
@@ -18,7 +17,6 @@ export interface IRegisteredPagesInterface {
 
 export interface IRouteStore {
     mainPage: IRegisteredPagesInterface;
-    loginPage: IRegisteredPagesInterface;
     registeredPages: IRegisteredPagesInterface[];
     titleActivePage: string;
     keycloakInformations: Keycloak.KeycloakInstance ;
@@ -31,12 +29,6 @@ const initialState: IRouteStore = {
         path: '/app',
         showIn: '',
         title: 'App',
-    },
-    loginPage: {
-        component: LoginView,
-        path: '/login',
-        showIn: '',
-        title: 'Login',
     },
     registeredPages: [{
         component: DashboardView,

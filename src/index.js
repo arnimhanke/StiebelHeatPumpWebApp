@@ -11,6 +11,8 @@ import {MyRouter} from './pages/router/RouteContainer';
 import configureStore from './util/store/configureStore';
 import { RootReducer } from './util/store/RootReducer';
 
+import Keycloak from 'keycloak-js';
+
 
 es6Promise.polyfill();
 
@@ -69,9 +71,27 @@ if (!Array.prototype.fill) {
     });
 }
 
-ReactDOM.render(
-    <Provider store={store}>
-        <MyRouter />
-    </Provider>,
-    document.getElementById('root')
-);
+
+export const CHANGE_KEYCLOAK_INSTANCE = 'CHANGE_KEYCLOAK_INSTANCE';
+
+
+const keycloak = Keycloak();
+keycloak.init({ onLoad: 'login-required' })
+    .success(() => {
+        console.log('jojo, hat geklappt' + keycloak);
+        
+        store.dispatch(
+            {
+                data: { ...keycloak },
+                type: CHANGE_KEYCLOAK_INSTANCE
+            });
+
+        ReactDOM.render(
+            <Provider store={store}>
+                <MyRouter />
+            </Provider>,
+            document.getElementById('root')
+        );
+    })
+    .error((error) => console.log('Hier ist was schief gelaufen: ' + error));
+

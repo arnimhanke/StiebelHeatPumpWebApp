@@ -1,5 +1,5 @@
+import { CHANGE_KEYCLOAK_INSTANCE } from '../..';
 import { clone } from '../../util/store/ObjectUtils';
-import { CHANGE_KEYCLOAK_INSTANCE } from './LoginViewContainer';
 
 const initialState: ILoginStore = {
     keycloakInformations: undefined,

@@ -17,8 +17,8 @@ export class InfluxDBView_Plain extends React.Component<IAppViewProperties, {}> 
             const baseAPI = new DefaultApi({accessToken: this.props.keycloakInformations ? this.props.keycloakInformations.token : ''});
             const accessParam: AccessParamterHeadDto = {
                 tsComposedKey: {
-                    databaseName: 'TestDB',
-                    tsId: 'test_1',
+                    databaseName: 'StiebelEltronHeatPumpRawDatasTest',
+                    tsId: 'ia_aussentemperatur',
                 },
             };
             baseAPI.getTimeseriesDefinitionByAccessParamterHeadDto(accessParam);

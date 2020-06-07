@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import {RootReducer} from './RootReducer';
 
-export default function configureStore(preloadedState: any) {
+export default function configureStore() {
     const w: any = window;
     const composeEnhancers = w.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(RootReducer,
