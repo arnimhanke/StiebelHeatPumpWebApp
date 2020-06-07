@@ -2,12 +2,14 @@ import * as React from 'react';
 
 import { clone } from '../../util/store/ObjectUtils';
 import { App } from '../main/App';
+import { LoginView } from '../main/LoginViewContainer';
 import { DashboardView } from '../view_dashboard/DashboardContainer';
 import { DayViewView } from '../view_dayview/DayViewContainer';
+import { InfluxDBView } from '../view_influxdb/InfluxDBContainer';
 import { MonthViewView } from '../view_monthview/MonthViewContainer';
 import { CHANGE_PAGE_TITLE } from './RouteContainer';
 
-interface IRegisteredPagesInterface {
+export interface IRegisteredPagesInterface {
     component: React.Component | any;
     path: string;
     showIn: string;
@@ -15,47 +17,58 @@ interface IRegisteredPagesInterface {
 }
 
 export interface IRouteStore {
-    mainPage: {
-        component: React.Component | any,
-        path: string,
-        showIn: string,
-        title: string,
-    };
-    registeredPages: IRegisteredPagesInterface[]
-    ;
+    mainPage: IRegisteredPagesInterface;
+    loginPage: IRegisteredPagesInterface;
+    registeredPages: IRegisteredPagesInterface[];
     titleActivePage: string;
+    keycloakInformations: Keycloak.KeycloakInstance ;
+    token: string;
 }
 
 const initialState: IRouteStore = {
     mainPage: {
         component: App,
-        path: '/',
+        path: '/app',
         showIn: '',
         title: 'App',
     },
+    loginPage: {
+        component: LoginView,
+        path: '/login',
+        showIn: '',
+        title: 'Login',
+    },
     registeredPages: [{
         component: DashboardView,
-        path: '/dashBoard',
+        path: '/app/dashBoard',
         showIn: 'sidebar',
         title: 'DashBoard',
     }, {
         component: MonthViewView,
-        path: '/monatsansicht',
+        path: '/app/monatsansicht',
         showIn: 'sidebar',
         title: 'Monatsansicht',
     }, {
         component: DayViewView,
-        path: '/tagesansicht',
+        path: '/app/tagesansicht',
         showIn: 'sidebar',
         title: 'Tagesansicht',
+    }, {
+        component: InfluxDBView,
+        path: '/app/influxdb',
+        showIn: 'sidebar',
+        title: 'InfluxDB',
     }],
     titleActivePage: '',
+    keycloakInformations: undefined,
+    token: undefined,
 };
 
 export function RouteReducer(state: IRouteStore = initialState, action: any) {
+
+    const clonedState = clone(state);
     switch (action.type) {
         case CHANGE_PAGE_TITLE:
-            const clonedState = clone(state);
             clonedState.titleActivePage = action.data;
             return clonedState;
     }

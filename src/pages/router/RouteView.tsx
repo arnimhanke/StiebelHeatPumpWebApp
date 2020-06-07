@@ -1,14 +1,20 @@
 import * as React from 'react';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-import { IRouteStore } from './RouteReducer';
+import { PrivateRoute } from './PrivateRoute';
+import { IRegisteredPagesInterface, IRouteStore } from './RouteReducer';
 
 export interface IRouteProperties {
     history: any;
     routeStore: IRouteStore;
+    keycloakInformations: Keycloak.KeycloakInstance;
 }
 
-type ComponentProps = IRouteProperties & {};
+export interface IRouteActions {
+
+}
+
+type ComponentProps = IRouteProperties & IRouteActions;
 
 export class MyRouterPlane extends React.Component<ComponentProps, {}> {
 
@@ -17,6 +23,15 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
     }
 
     public shouldComponentUpdate(nextProps: IRouteProperties, nextState: any) {
+        if (nextProps.keycloakInformations != undefined && this.props.keycloakInformations == undefined) {
+            return true;
+        }
+
+        if (nextProps.keycloakInformations != undefined && this.props.keycloakInformations != undefined
+            && nextProps.keycloakInformations.token != this.props.keycloakInformations.token) {
+            return true;
+        }
+
         return false;
     }
 
@@ -26,10 +41,16 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
                 <HashRouter>
                     <div>
                         <Switch>
-                            <Route key={this.props.routeStore.mainPage.path}
+                            <Route exact key={this.props.routeStore.loginPage.path}
+                                path={this.props.routeStore.loginPage.path}
+                                component={this.props.routeStore.loginPage.component}></Route>
+                            <PrivateRoute key={this.props.routeStore.mainPage.path}
                                 path={this.props.routeStore.mainPage.path}
+                                isAuth={this.props.keycloakInformations != undefined}
+                                redirectPath={this.props.routeStore.loginPage.path}
                                 component={this.props.routeStore.mainPage.component}>
-                            </Route>
+                            </PrivateRoute>
+
                         </Switch>
                     </div>
                 </HashRouter>
@@ -37,5 +58,5 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
         );
     }
 
-    protected refreshData() {}
+    protected refreshData() { }
 }

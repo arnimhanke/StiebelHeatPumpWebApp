@@ -17,7 +17,7 @@ import * as url from "url";
 import * as portableFetch from "portable-fetch";
 import { Configuration } from "./configuration";
 
-const BASE_PATH = "http://localhost/timeseriestoolset-api".replace(/\/+$/, "");
+const BASE_PATH = "http://localhost:4567/api/timeseriestoolset-api".replace(/\/+$/, "");
 
 /**
  *
@@ -360,6 +360,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -388,6 +389,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -421,6 +423,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -454,6 +457,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -482,6 +486,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -510,6 +515,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -543,6 +549,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -576,6 +583,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -604,6 +612,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -632,6 +641,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -660,6 +670,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
@@ -688,6 +699,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943

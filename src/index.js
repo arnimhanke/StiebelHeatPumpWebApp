@@ -11,6 +11,7 @@ import {MyRouter} from './pages/router/RouteContainer';
 import configureStore from './util/store/configureStore';
 import { RootReducer } from './util/store/RootReducer';
 
+
 es6Promise.polyfill();
 
 const objectAssign = require('object-assign');

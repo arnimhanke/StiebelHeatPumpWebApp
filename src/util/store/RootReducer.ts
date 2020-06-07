@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { AlertReducer } from '../../pages/alerts/AlertReducer';
+import { LoginReducer } from '../../pages/main/LoginReducer';
 import { RouteReducer } from '../../pages/router/RouteReducer';
 import { SideBarReducer } from '../../pages/sidebar/SideBarReducer';
 import { DashboardReducer } from '../../pages/view_dashboard/DashboardReducer';
@@ -17,6 +18,7 @@ const AppReducer = combineReducers(
         dashboardReducer: DashboardReducer,
         dayViewReducer: DayViewReducer,
         monthViewReducer: MonthViewReducer,
+        loginReducer: LoginReducer,
     });
 
 export const RootReducer = (state: any, action: any) => {
