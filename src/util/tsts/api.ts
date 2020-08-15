@@ -284,7 +284,8 @@ export interface TimeSeriesHead {
 export enum TimeSeriesRaster {
     PT15M = <any> 'PT15M',
     PT1H = <any> 'PT1H',
-    P1D = <any> 'P1D'
+    P1D = <any> 'P1D',
+    PT15S = <any> 'PT15S'
 }
 
 /**
@@ -360,6 +361,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -389,6 +391,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -423,6 +426,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -457,6 +461,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -486,6 +491,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -515,6 +521,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -549,6 +556,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -583,6 +591,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -612,6 +621,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -641,6 +651,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -670,6 +681,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -699,6 +711,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
             localVarHeaderParameter['Authorization'] = 'bearer ' + configuration.accessToken;
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);

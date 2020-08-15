@@ -3,11 +3,12 @@ import * as moment from 'moment';
 import { Interval } from '../../objects/Intervals';
 import { MonthViewDataDto } from '../../objects/MonthViewDateDto';
 import { ValueDto } from '../../objects/ValueDto';
-import {cloneObject} from '../../util/store/ObjectUtils';
+import { cloneObject } from '../../util/store/ObjectUtils';
+import { Timeseries, TimeSeriesRaster, TimeSeriesUnit, TimeSeriesValue } from '../../util/tsts';
 import { HighcartsSeries } from '../common/HIghcharts/HighchartsSeries';
-import {IDispatchObjectExternData, IDispatchObjectInternData} from '../common/RequestHelper';
+import { IDispatchObjectExternData, IDispatchObjectInternData } from '../common/RequestHelper';
 import { preparingDataForFurtherUse } from '../common/SeriesActions';
-import { DAYVIEW_DATA } from './DayViewContainer';
+import { DAYVIEW_DATA, DAYVIEW_DATA_TIMESERIES } from './DayViewContainer';
 
 export interface IDayViewStore {
     selectedDate: moment.Moment;
@@ -23,7 +24,7 @@ export function DayViewReducer(state: IDayViewStore = initialState, action: IDis
 
     switch (action.type) {
         case DAYVIEW_DATA:
-            const clonedState: IDayViewStore = cloneObject(state);
+            const clonedState1: IDayViewStore = cloneObject(state);
             const data: MonthViewDataDto = action.rootData;
             const optionalData = action.optionalData;
 
@@ -34,14 +35,48 @@ export function DayViewReducer(state: IDayViewStore = initialState, action: IDis
             const preparedData = preparingDataForFurtherUse(data.values, start, end, Interval.PT15_SEC);
 
             console.log(preparedData);
-            clonedState.series = generateHighchartsSeries(preparedData);
-            return clonedState;
+            clonedState1.series = generateHighchartsSeries(preparedData);
+            return clonedState1;
+        case DAYVIEW_DATA_TIMESERIES:
+            const clonedState2: IDayViewStore = cloneObject(state);
+            console.log(action.rootData);
+            const ts: Timeseries = action.rootData;
+            clonedState2.series = [];
+            clonedState2.series.push(generateHighchartsSeriesFromTimeseries(ts));
+            console.log(clonedState2);
+            return clonedState2;
     }
 
     return state;
 }
 
-function generateHighchartsSeries(data: {[key: string]: ValueDto[]}): HighcartsSeries[] {
+function generateHighchartsSeriesFromTimeseries(ts: Timeseries): HighcartsSeries {
+
+    const series = new HighcartsSeries();
+    const sortedList: TimeSeriesValue[] = ts.timeSeriesValues.sort((a: TimeSeriesValue, b: TimeSeriesValue) => moment(a.time).isBefore(moment(b.time)) ? 1 : 0);
+    series.data = sortedList.map((value) => value.value);
+    series.name = ts.timeSeriesHead.tsId;
+    series.pointStart = moment(sortedList[0].time).valueOf();
+    series.pointInterval = getNumberOfSecondsFromTimeSeriesRaster(ts.timeSeriesHead.tsRaster);
+
+    return series;
+}
+
+function getNumberOfSecondsFromTimeSeriesRaster(timeseriesRaster: TimeSeriesRaster): number {
+    switch (timeseriesRaster) {
+        case TimeSeriesRaster.P1D:
+            return 24 * 60 * 60;
+        case TimeSeriesRaster.PT15M:
+            return 15 * 60;
+        case TimeSeriesRaster.PT1H:
+            return 60 * 60;
+        case TimeSeriesRaster.PT15S:
+            return 15;
+
+    }
+}
+
+function generateHighchartsSeries(data: { [key: string]: ValueDto[] }): HighcartsSeries[] {
     const ret: HighcartsSeries[] = [];
 
     for (const key in data) {

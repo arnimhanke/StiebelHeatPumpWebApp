@@ -26,28 +26,28 @@ export interface IRouteStore {
 const initialState: IRouteStore = {
     mainPage: {
         component: App,
-        path: '/app',
+        path: '/',
         showIn: '',
         title: 'App',
     },
     registeredPages: [{
         component: DashboardView,
-        path: '/app/dashBoard',
+        path: '/dashBoard',
         showIn: 'sidebar',
         title: 'DashBoard',
     }, {
         component: MonthViewView,
-        path: '/app/monatsansicht',
+        path: '/monatsansicht',
         showIn: 'sidebar',
         title: 'Monatsansicht',
     }, {
         component: DayViewView,
-        path: '/app/tagesansicht',
+        path: '/tagesansicht',
         showIn: 'sidebar',
         title: 'Tagesansicht',
     }, {
         component: InfluxDBView,
-        path: '/app/influxdb',
+        path: '/influxdb',
         showIn: 'sidebar',
         title: 'InfluxDB',
     }],

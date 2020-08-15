@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AccessParamterHeadDto, BaseAPI, DefaultApi } from '../../util/tsts/api';
+import { AccessParamterHeadDto, DefaultApi } from '../../util/tsts/api';
 import { IAppViewProperties } from '../main/App';
 
 export class InfluxDBView_Plain extends React.Component<IAppViewProperties, {}> {

@@ -23,8 +23,11 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
         super(props, state);
     }
 
-    public handleRefresh(token: any) {
-        console.log('Called every time the token is refreshed so you can update it locally', token);
+    public shouldComponentUpdate(nextProps: ComponentProps, nextState: {}) {
+        if (this.props.keycloakInformations === undefined && nextProps.keycloakInformations  !== undefined) {
+            return true;
+        }
+        return false;
     }
 
     public render() {
@@ -36,7 +39,6 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
                             <PrivateRoute key={this.props.routeStore.mainPage.path}
                                 path={this.props.routeStore.mainPage.path}
                                 isAuth={this.props.keycloakInformations != undefined}
-                                redirectPath={'/'}
                                 component={this.props.routeStore.mainPage.component}>
                             </PrivateRoute>
                         </Switch>

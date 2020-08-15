@@ -86,12 +86,13 @@ keycloak.init({ onLoad: 'login-required' })
                 type: CHANGE_KEYCLOAK_INSTANCE
             });
 
-        ReactDOM.render(
-            <Provider store={store}>
-                <MyRouter />
-            </Provider>,
-            document.getElementById('root')
-        );
     })
     .error((error) => console.log('Hier ist was schief gelaufen: ' + error));
 
+
+ReactDOM.render(
+    <Provider store={store}>
+        <MyRouter />
+    </Provider>,
+    document.getElementById('root')
+);

@@ -9,11 +9,13 @@ import { IDayViewStore } from './DayViewReducer';
 
 export interface IDayViewProperties {
     DayViewStore: IDayViewStore;
+    keycloakInformations: Keycloak.KeycloakInstance;
 }
 
 export interface IDayViewActions {
     actions: {
         getDataForDayView: (from: String, to: String) => any;
+        getTimeseriesForDayView: (from: String, to: String, token: string) => any;
     };
 }
 
@@ -27,8 +29,12 @@ export class DayViewPlain extends AbstractView<DayViewProps, {}> {
     }
 
     public componentDidMount() {
-        this.props.actions.getDataForDayView(   moment().startOf('day').toISOString(),
-                                                moment().add(1, 'd').startOf('day').toISOString());
+        // this.props.actions.getDataForDayView(moment().startOf('day').toISOString(),
+        //     moment().add(1, 'd').startOf('day').toISOString());
+        if (this.props.keycloakInformations) {
+            this.props.actions.getTimeseriesForDayView(moment().startOf('day').toISOString(),
+                moment().add(1, 'd').startOf('day').toISOString(), this.props.keycloakInformations.token);
+        }
 
     }
 
@@ -53,16 +59,16 @@ export class DayViewPlain extends AbstractView<DayViewProps, {}> {
                 <Row>
                     <Col>
                         <DateTimePicker
-                        onChange={this.onChange}
-                        timeFormat={null}
-                        closeOnSelect={true}
-                        value={this.props.DayViewStore.selectedDate}
+                            onChange={this.onChange}
+                            timeFormat={null}
+                            closeOnSelect={true}
+                            value={this.props.DayViewStore.selectedDate}
                         />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <div id='chart'/>
+                        <div id='chart' />
                     </Col>
                 </Row>
             </div>
@@ -71,8 +77,12 @@ export class DayViewPlain extends AbstractView<DayViewProps, {}> {
 
     private onChange(selectedDate: moment.Moment) {
         console.log(selectedDate);
-        this.props.actions.getDataForDayView( moment(selectedDate).startOf('day').subtract(1, 'months').toISOString(),
-                                                moment(selectedDate).startOf('day').add(2, 'd').toISOString());
+        // this.props.actions.getDataForDayView(moment(selectedDate).startOf('day').subtract(1, 'months').toISOString(),
+        //     moment(selectedDate).startOf('day').add(2, 'd').toISOString());
+        if (this.props.keycloakInformations) {
+            this.props.actions.getTimeseriesForDayView(selectedDate.startOf('day').toISOString(),
+            selectedDate.add(1, 'd').startOf('day').toISOString(), this.props.keycloakInformations.token);
+        }
     }
 
 }
