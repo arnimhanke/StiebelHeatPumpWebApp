@@ -33,7 +33,7 @@ export class AlertComponentPlain extends React.Component<ComponentProps, {}> {
     }
 
     public getDismissHandler(alertType: string) {
-        const that = this;
+        const that: any = this;
         return () => {
             that.props.actions.closeAlert(alertType);
         };

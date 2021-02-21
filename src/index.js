@@ -1,20 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import * as es6Promise from 'es6-promise';
+// import * as es6Promise from 'es6-promise';
 import moment from 'moment';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 
-import {MyRouter} from './pages/router/RouteContainer';
+import { MyRouter } from './pages/router/RouteContainer';
 import configureStore from './util/store/configureStore';
 import { RootReducer } from './util/store/RootReducer';
 
 import Keycloak from 'keycloak-js';
 
 
-es6Promise.polyfill();
+// es6Promise.polyfill();
 
 const objectAssign = require('object-assign');
 // import 'bootstrap/less/bootstrap.less';
@@ -29,7 +29,7 @@ if (!Object.assign) {
 
 if (!Array.prototype.fill) {
     Object.defineProperty(Array.prototype, 'fill', {
-        value: function(value) {
+        value: function (value) {
             // Steps 1-2.
             if (this == null) {
                 throw new TypeError('this is null or not defined');
@@ -74,21 +74,24 @@ if (!Array.prototype.fill) {
 
 export const CHANGE_KEYCLOAK_INSTANCE = 'CHANGE_KEYCLOAK_INSTANCE';
 
+if (process.env.NO_SECURITY === "false") {
+    const keycloak = Keycloak();
+    keycloak.init({ onLoad: 'login-required' })
+        .success(() => {
+            console.log('jojo, hat geklappt' + keycloak);
 
-const keycloak = Keycloak();
-keycloak.init({ onLoad: 'login-required' })
-    .success(() => {
-        console.log('jojo, hat geklappt' + keycloak);
-        
-        store.dispatch(
-            {
-                data: { ...keycloak },
-                type: CHANGE_KEYCLOAK_INSTANCE
-            });
+            store.dispatch(
+                {
+                    data: { ...keycloak },
+                    type: CHANGE_KEYCLOAK_INSTANCE
+                });
 
-    })
-    .error((error) => console.log('Hier ist was schief gelaufen: ' + error));
+        })
+        .error((error) => console.log('Hier ist was schief gelaufen: ' + error));
 
+}
+
+console.log(process.env.NO_SECURITY);
 
 ReactDOM.render(
     <Provider store={store}>
