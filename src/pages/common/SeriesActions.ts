@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { AggregationTypes, config } from '../../objects/AggregationConfig';
 import { Interval } from '../../objects/Intervals';
@@ -308,7 +308,7 @@ function aggregateSeriesMaxBeforeMinor(data: ValueDto[], start: moment.Moment, e
             aktInterval = 0;
             lastMax = 0;
         } else {
-            if (lastMax < parsedValue && lastCommitedValue != parsedValue) {
+            if (lastMax < parsedValue && lastCommitedValue !== parsedValue) {
                 lastMax = parsedValue;
             }
         }

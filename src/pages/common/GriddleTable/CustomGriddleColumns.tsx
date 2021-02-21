@@ -1,6 +1,6 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import * as React from 'react';
-import { Checkbox } from 'react-bootstrap';
+import { InputGroup  } from 'react-bootstrap/esm';
 
 import { IComponentProps } from './GriddleTableButtonColumn';
 
@@ -31,8 +31,9 @@ export const CustomStringColumn = ({ value }: any) => {
 export const CustomBooleanColumn = ({ value }: any) => {
     return (
         <span>
-            <Checkbox inline readOnly checked={value.get('data') === 'true'}>
-            </Checkbox>
+            <InputGroup>
+                <InputGroup.Checkbox inline readOnly checked={value.get('data') === 'true'}></InputGroup.Checkbox>
+            </InputGroup>
         </span>
     );
 };

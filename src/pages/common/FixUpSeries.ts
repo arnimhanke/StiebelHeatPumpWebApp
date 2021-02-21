@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { AggregationTypes, config } from '../../objects/AggregationConfig';
 import { ValueDto } from '../../objects/ValueDto';

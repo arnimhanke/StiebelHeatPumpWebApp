@@ -13,7 +13,7 @@ export class InfluxDBView_Plain extends React.Component<IAppViewProperties, {}> 
     }
 
     public componentDidMount() {
-        if (this.props.keycloakInformations != undefined) {
+        if (this.props.keycloakInformations !== undefined) {
             const baseAPI = new DefaultApi({accessToken: this.props.keycloakInformations ? this.props.keycloakInformations.token : ''});
             const accessParam: AccessParamterHeadDto = {
                 tsComposedKey: {

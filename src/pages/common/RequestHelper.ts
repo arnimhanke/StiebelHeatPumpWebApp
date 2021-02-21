@@ -28,6 +28,7 @@ export function getRequest<T>(postfix: string, dispatchType: string, optionalDat
             if (!ipPrefix.includes('http://')) {
                 ipPrefix = 'http://' + ipPrefix;
             }
+            ipPrefix = 'http://192.168.178.156';
             fetch(ipPrefix + ':4567' + postfix, {
                 method: 'GET',
             })

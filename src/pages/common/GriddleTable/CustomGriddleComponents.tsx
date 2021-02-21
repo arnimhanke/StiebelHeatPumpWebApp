@@ -1,6 +1,6 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import * as React from 'react';
-import { Button, ButtonToolbar, Col, DropdownButton, MenuItem, Row } from 'react-bootstrap';
+import { Button, ButtonToolbar, Col, DropdownButton, NavItem, Row } from 'react-bootstrap/esm';
 
 import { IComponentProps } from './GriddleTableButtonColumn';
 
@@ -74,15 +74,15 @@ export const CustomPageDropDown = (ref7: { maxPages: any, currentPage: any, clas
     const arr: any[] = Array(ref7.maxPages).fill(0).map((_: any, i: any) => i + 1);
     return (
         <DropdownButton style={{ width: '75px', float: 'left', marginLeft: '5px' }} onChange={(e: any) => ref7.setPage(parseInt(e.target.value, 10))}
-                        title={ref7.currentPage + '/' + ref7.maxPages} id={'griddlePageChooser'} dropup={true} className='griddleDropdownStyle'>
+                        title={ref7.currentPage + '/' + ref7.maxPages} id={'griddlePageChooser'} className='griddleDropdownStyle'>
             {
                 arr.map((num: number) => (
-                    <MenuItem eventKey={num} value={num} key={'griddlePagination_' + num}
+                    <NavItem key={'griddlePagination_' + num}
                         onSelect={(e: any) => {
                             ref7.setPage(e);
                         }}>
                         {num}
-                    </MenuItem>
+                    </NavItem>
                 ))
             }
         </DropdownButton>

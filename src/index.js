@@ -1,7 +1,7 @@
-import './ressources/style/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import * as es6Promise from 'es6-promise';
-import * as moment from 'moment';
+import moment from 'moment';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { HashRouter, Switch } from 'react-router-dom';
 
-// import { PrivateRoute } from './PrivateRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { IRouteStore } from './RouteReducer';
 
@@ -38,7 +37,7 @@ export class MyRouterPlane extends React.Component<ComponentProps, {}> {
                         <Switch>
                             <PrivateRoute key={this.props.routeStore.mainPage.path}
                                 path={this.props.routeStore.mainPage.path}
-                                isAuth={this.props.keycloakInformations != undefined}
+                                isAuth={this.props.keycloakInformations !== undefined}
                                 component={this.props.routeStore.mainPage.component}>
                             </PrivateRoute>
                         </Switch>

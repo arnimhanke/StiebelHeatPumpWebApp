@@ -7,7 +7,9 @@
         "target": "es6",
         "jsx": "react",
         "allowJs": true,
-        "keyofStringsOnly": true
+        "keyofStringsOnly": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
     },
     "include": [
         "src/**/*"

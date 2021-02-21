@@ -1,7 +1,7 @@
 import '../../ressources/style/header.css';
 
 import * as React from 'react';
-import { Navbar } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
 
 import { Sidebar } from '../sidebar/SideBarContainer';
 
@@ -12,11 +12,11 @@ export class Header extends React.Component<{}, {}> {
             <div>
                 <Sidebar/>
                 <Navbar>
-                    <Navbar.Header>
+                    <Navbar.Brand>
                         <Navbar.Text>
                             Heizungssuite
                         </Navbar.Text>
-                    </Navbar.Header>
+                    </Navbar.Brand>
                 </Navbar>
             </div>
         );

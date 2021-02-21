@@ -1,8 +1,8 @@
-import * as moment from 'moment';
+import moment from 'moment';
 import * as React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap/esm';
 
-import * as DateTimePicker from 'react-datetime';
+// import * as DateTimePicker from 'react-datetime';
 import { AbstractView } from '../common/AbstractComponent';
 import * as ExportToCSV from '../common/export/ExportToCSV';
 import { GriddleTableButtonColumn } from '../common/GriddleTable/GriddleTableButtonColumn';
@@ -47,13 +47,13 @@ export class MonthViewPlain extends AbstractView<MonthViewProps, {}> {
                     </Col>
                 </Row>
                 <Row>
-                    <Col mdOffset={2} md={8}>
-                        <DateTimePicker
+                    <Col md={8}>
+                        {/* <DateTimePicker
                         onChange={this.onChange}
                         timeFormat={null}
                         closeOnSelect={true}
                         value={this.props.monthViewStore.startDate}
-                        />
+                        /> */}
                     </Col>
                 </Row>
                 <Row>

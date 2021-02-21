@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import {DashBoardObject} from '../../objects/DashBoardObjects';
 import {cloneObject} from '../../util/store/ObjectUtils';

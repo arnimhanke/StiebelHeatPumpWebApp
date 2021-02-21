@@ -10,7 +10,8 @@ export const PrivateRoute = ({ component: Component, isAuth, redirectPath, ...re
             ? (
               <Component {...props} />
             )
-            : (<Redirect to={{ pathname: redirectPath, state: { from: props.location } }} />)
+            // : (<Redirect to={{ pathname: redirectPath, state: { from: props.location } }} />)
+            : <div>unauth!</div>
         )}
       />
     );

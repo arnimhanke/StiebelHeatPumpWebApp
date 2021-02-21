@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 import { Interval } from '../../objects/Intervals';
 import { MonthViewDataDto } from '../../objects/MonthViewDateDto';
@@ -65,13 +65,13 @@ function generateHighchartsSeriesFromTimeseries(ts: Timeseries): HighcartsSeries
 function getNumberOfSecondsFromTimeSeriesRaster(timeseriesRaster: TimeSeriesRaster): number {
     switch (timeseriesRaster) {
         case TimeSeriesRaster.P1D:
-            return 24 * 60 * 60;
+            return 24 * 60 * 60 * 1000;
         case TimeSeriesRaster.PT15M:
-            return 15 * 60;
+            return 15 * 60 * 1000;
         case TimeSeriesRaster.PT1H:
-            return 60 * 60;
+            return 60 * 60 * 1000;
         case TimeSeriesRaster.PT15S:
-            return 15;
+            return 15 * 1000;
 
     }
 }
@@ -80,7 +80,7 @@ function generateHighchartsSeries(data: { [key: string]: ValueDto[] }): Highcart
     const ret: HighcartsSeries[] = [];
 
     for (const key in data) {
-        if (data[key] != undefined) {
+        if (data[key] !== undefined) {
             const series = new HighcartsSeries();
             if (data[key].length > 0) {
                 series.pointStart = data[key][0].date;

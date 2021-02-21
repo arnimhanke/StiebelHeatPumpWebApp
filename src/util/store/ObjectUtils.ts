@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 export function cloneObject(object: any) {
     return JSON.parse(JSON.stringify(object));

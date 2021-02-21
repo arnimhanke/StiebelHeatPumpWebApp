@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment';
 
 export const numberSort = (data: any, column: any, sortAscending = true): any => {
     const columnName = column;

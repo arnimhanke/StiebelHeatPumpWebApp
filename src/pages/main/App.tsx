@@ -1,7 +1,7 @@
 import '../../ressources/style/griddle.css';
 
 import * as React from 'react';
-import { Grid } from 'react-bootstrap';
+import Grid from 'react-bootstrap/Container';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import { bindActionCreators, Dispatch } from 'redux';
@@ -24,14 +24,14 @@ type ComponentProps = IAppViewProperties & {};
 export class AppPlain extends React.Component<ComponentProps, {}> {
 
     public shouldComponentUpdate(nextProps: ComponentProps, nextState: any) {
-        // if (nextProps.appStore.keycloakInformations != undefined && this.props.appStore.keycloakInformations == undefined) {
-        //     return false;
-        // }
+        if (nextProps.keycloakInformations !== undefined && this.props.keycloakInformations == undefined) {
+            return false;
+        }
 
-        // if (nextProps.appStore.keycloakInformations != undefined && this.props.appStore.keycloakInformations != undefined
-        //     && nextProps.appStore.keycloakInformations.token != this.props.appStore.keycloakInformations.token) {
-        //     return false;
-        // }
+        if (nextProps.keycloakInformations !== undefined && this.props.keycloakInformations !== undefined
+            && nextProps.keycloakInformations.token !== this.props.keycloakInformations.token) {
+            return false;
+        }
 
         return true;
     }

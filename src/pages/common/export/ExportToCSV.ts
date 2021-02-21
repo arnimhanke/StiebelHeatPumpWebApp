@@ -1,6 +1,6 @@
 
 export function convertToCSV(objArray: any) {
-    const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     let firstRor = true;
 
@@ -8,7 +8,7 @@ export function convertToCSV(objArray: any) {
         let line = '';
         if (firstRor) {
             for (const index in array[i]) {
-                if (line != '') {
+                if (line !== '') {
                     line += ',';
                 }
 
@@ -19,7 +19,7 @@ export function convertToCSV(objArray: any) {
             firstRor = false;
         }
         for (const index in array[i]) {
-            if (line != '') {
+            if (line !== '') {
                 line += ',';
             }
 

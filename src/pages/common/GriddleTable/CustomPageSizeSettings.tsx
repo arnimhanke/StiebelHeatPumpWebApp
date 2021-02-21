@@ -2,7 +2,8 @@ import * as actions from 'griddle-react/dist/module/actions/index.js';
 import * as selectors from 'griddle-react/dist/module/selectors/dataSelectors';
 import * as griddleUtils from 'griddle-react/dist/module/utils';
 import * as React from 'react';
-import { Button, Col, DropdownButton, MenuItem } from 'react-bootstrap';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import MenuItem from 'react-bootstrap/PageItem';
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import withState from 'recompose/withState';
@@ -34,7 +35,7 @@ export const PageSizeSettings = compose(
     }
     for (let i = 10; i < maxPageSize; i += 10) {
         menuItems.push(
-            <MenuItem key={i} eventKey={i}
+            <MenuItem key={i}
                 onSelect={(e: any) => {
                     const obj = { target: { value: e } };
                     onChange(obj);
@@ -44,7 +45,7 @@ export const PageSizeSettings = compose(
             </MenuItem>);
     }
     menuItems.push(
-        <MenuItem key={maxPageSize} eventKey={maxPageSize}
+        <MenuItem key={maxPageSize}
             onSelect={(e: any) => {
                 const obj = { target: { value: e } };
                 onChange(obj);

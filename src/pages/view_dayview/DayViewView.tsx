@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+// import { DateBox } from 'devextreme-react/ui/date-box';
 import * as Highcharts from 'highstock-release/highstock';
-import * as moment from 'moment';
-import * as DateTimePicker from 'react-datetime';
+import moment from 'moment';
 import { AbstractView } from '../common/AbstractComponent';
 import { IDayViewStore } from './DayViewReducer';
 
@@ -58,12 +58,12 @@ export class DayViewPlain extends AbstractView<DayViewProps, {}> {
                 </Row>
                 <Row>
                     <Col>
-                        <DateTimePicker
-                            onChange={this.onChange}
-                            timeFormat={null}
-                            closeOnSelect={true}
-                            value={this.props.DayViewStore.selectedDate}
-                        />
+                        {/* <DateBox
+                            // onChange={this.onChange}
+                            // timeFormat={null}
+                            // closeOnSelect={true}
+                            // value={this.props.DayViewStore.selectedDate}
+                        /> */}
                     </Col>
                 </Row>
                 <Row>
