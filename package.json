@@ -75,11 +75,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress",
+    "build": "webpack --progress --env NO_SECURITY=true",
     "ttt": "webpack --progress",
     "watch": "webpack --progress --watch --env NO_SECURITY=true",
-    "build-production": "webpack -p --progress --config webpack.production.config.js",
-    "watch-production": "webpack -p --progress --config webpack.production.config.js --watch",
+    "build-production": "webpack --progress --env NO_SECURITY=true --mode production",
+    "watch-production": "webpack --progress --env NO_SECURITY=true --mode production --watch",
     "server": "webpack serve --progress --env NO_SECURITY=true"
   }
 }
