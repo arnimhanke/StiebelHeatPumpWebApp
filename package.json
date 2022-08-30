@@ -19,7 +19,7 @@
     "highstock-release": "^6.0.3",
     "jquery": "^3.5.0",
     "moment": "^2.20.1",
-    "moment-timezone": "^0.5.13",
+    "moment-timezone": "^0.5.35",
     "object-assign": "^4.1.1",
     "prop-types": "^15.5.0",
     "rc-tree": "^1.4.1",
